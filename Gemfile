@@ -18,8 +18,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails', "~> 4.10.0"
-  gem 'capybara', '~> 2.13.0'
-  gem 'selenium-webdriver'
+  gem 'capybara', '~> 2.15.2'
+  gem 'launchy', '~> 2.4.3'
+  gem 'selenium-webdriver', '~> 3.4.1'
+  gem 'webdrivers'
 end
 
 group :development do
