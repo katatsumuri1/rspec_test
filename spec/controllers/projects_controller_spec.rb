@@ -5,10 +5,10 @@ RSpec.describe ProjectsController, type: :controller do
     
     #認証済みユーザーとして
     context "as an authenticated user" do
-      
       before do
         @user = FactoryBot.create(:user)
       end
+      
       #正常にレスポンスを返すこと
       it "responds successfully" do
         sign_in @user

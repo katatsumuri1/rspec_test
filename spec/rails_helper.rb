@@ -57,4 +57,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   #コントローラースペックでDeviseのテストヘルパーを使用する
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include RequestSpecHelper, type: :request
 end
