@@ -7,12 +7,7 @@ RSpec.feature "Projects", type: :feature do
   scenario"user creates a new project" do
     user = FactoryBot.create(:user)
     
-    visit root_path
-    click_link "Sign in"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
-    
+    sign_in_as user
     
     expect{
       click_link "New Project"
@@ -24,6 +19,12 @@ RSpec.feature "Projects", type: :feature do
       expect(page).to have_content "Test Project"
       expect(page).to have_content "Owner: #{user.name}"
     }.to change(user.projects, :count).by(1)
+    
+    aggregate_failures do
+      expect(page).to have_content "Project was successfully created"
+      expect(page).to have_content "Test Project"
+      expect(page).to have_content "Owner: #{user.name}"
+    end
   end
   
   # #全種類のHTML要素を扱う
