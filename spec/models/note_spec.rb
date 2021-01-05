@@ -64,5 +64,12 @@ RSpec.describe Note, type: :model do
         expect(Note.count).to eq 3
       end
     end
+    #名前の取得をメモ作成したユーザーに委譲すること
+    it "delegates name to the user who created it" do
+      user = double("User", name: "Fake User")
+      note = Note.new
+      allow(note).to receive(:user).and_return(user)
+      expect(note.user_name).to eq"Fake User"
+    end
   end
 end

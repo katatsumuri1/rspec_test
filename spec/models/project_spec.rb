@@ -25,6 +25,8 @@ RSpec.describe Project, type: :model do
       new_project.valid?
       expect(new_project.errors[:name]).to include("has already been taken")
   end
+  #↑のテストをShouldaで書いた場合 
+  it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id)}
   
   #二人のユーザーが同じ名前を使う事は許可すること
   it "allows two users to sheare a project name" do
