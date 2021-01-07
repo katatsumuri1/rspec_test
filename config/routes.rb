@@ -13,10 +13,14 @@ Rails.application.routes.draw do
         post :toggle
       end
     end
+    member do
+      patch :complete
+    end
   end
 
   namespace :api do
     resources :projects#, only: [:index, :show, :create]
   end
+
   root "home#index"
 end

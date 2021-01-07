@@ -4,7 +4,7 @@ RSpec.describe Note, type: :model do
   let(:user) {FactoryBot.create(:user)}
   let(:project) {FactoryBot.create(:project, owner: user)}
   
-  it {is_expected.to have_attached_file(:attachement)}
+  it {is_expected.to have_attached_file(:attachment)}
   
   #ユーザー、プロジェクト、メッセージがあれば有効な状態であること
   it "is valid with a user, project , and message" do
